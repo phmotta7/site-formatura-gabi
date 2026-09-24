@@ -63,11 +63,11 @@ app.innerHTML = `
           <p class="eyebrow">Para celebrar juntos</p><h2 class="script-heading">Informações importantes</h2>
           <div class="attire-card"><span class="eyebrow">Dress code</span><strong>${event.attire}</strong><p>${event.attireNote}</p></div>
           <ul class="notes-list">
-            <li>Chegue com antecedência para que possamos aproveitar cada momento com tranquilidade.</li>
-            <li>Convite exclusivo e individual. Confirme somente a sua presença.</li>
-            <li>Tire muitas fotos, me marque e me ajude a eternizar esse momento.</li>
-            <li>Não esqueça de confirmar a sua presença!</li>
-            <li>É proibido ir embora no meio da festa. Fique até o final!</li>
+            <li><svg class="notes-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="notes-divider" aria-hidden="true"></span><p>Chegue com antecedência para que possamos aproveitar cada momento com tranquilidade.</p></li>
+            <li><svg class="notes-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span class="notes-divider" aria-hidden="true"></span><p>Convite exclusivo e individual. Confirme somente a sua presença.</p></li>
+            <li><svg class="notes-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.6"/></svg><span class="notes-divider" aria-hidden="true"></span><p>Tire muitas fotos, me marque e me ajude a eternizar esse momento.</p></li>
+            <li><svg class="notes-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.8 7L4 20.5l1.5-4.6A8 8 0 1 1 21 12z"/><path d="M9 11h6M9 14h4"/></svg><span class="notes-divider" aria-hidden="true"></span><p>Não esqueça de confirmar a sua presença!</p></li>
+            <li><svg class="notes-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10"/><circle cx="12" cy="19" r="1.2" fill="currentColor"/></svg><span class="notes-divider" aria-hidden="true"></span><p>É proibido ir embora no meio da festa. Fique até o final!</p></li>
           </ul>
         </div>
         <div class="photo-slot photo-slot--wide reveal" data-photo="details" role="img" aria-label="Retrato de Gabriela na formatura"><span>Memórias para guardar</span></div>
