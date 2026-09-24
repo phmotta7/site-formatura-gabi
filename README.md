@@ -24,11 +24,11 @@ As cinco fotos enviadas foram convertidas para WebP otimizado e adicionadas a `p
 
 ## RSVP
 
-O convite pergunta nome e se haverá acompanhante, e mantém o WhatsApp recuperado do HTML original. Para registrar confirmações no Formspree, informe um endpoint real em `formspreeEndpoint` em `src/config.js`. Sem endpoint, o formulário abre a conversa do WhatsApp com a mensagem preenchida.
+O RSVP pede somente o nome, pois o convite é individual, e confirma pelo WhatsApp recuperado do HTML original. Para registrar confirmações no Formspree, informe um endpoint real em `formspreeEndpoint` em `src/config.js`. Sem endpoint, o formulário abre a conversa do WhatsApp com a mensagem preenchida.
 
 ## Conteúdo incluído
 
-O nome, curso, turma, data, horário, local, dress code, lembretes, prazo de confirmação e texto da história foram preservados do HTML original. As cinco fotos enviadas estão incluídas como WebP (aproximadamente 36–47 KB cada). O selo e a lâmpada decorativa foram mantidos. O áudio é opcional, não toca automaticamente e só carrega ao ser acionado.
+O nome, curso, turma, data, horário, local, dress code, lembretes, prazo de confirmação e texto da história foram preservados do HTML original. As cinco fotos enviadas estão incluídas como WebP (aproximadamente 36–47 KB cada). O selo e a lâmpada decorativa foram mantidos. A música começa após o clique voluntário no selo; o botão fixo permite pausar ou retomar.
 
 O link do mapa busca o nome do espaço; confira o endereço exato antes de publicar. Não há endpoint Formspree incluído.
 

@@ -44,18 +44,15 @@ app.innerHTML = `
       <div class="wrap event-grid">
         <div class="photo-slot photo-slot--wide reveal" data-photo="event" role="img" aria-label="Gabriela com capelo e canudo de formatura"><span>Uma nova etapa começa</span></div>
         <div class="invite-copy reveal">
-          <p class="eyebrow">Com alegria e gratidão</p>
           <h2 class="invite-title">${event.graduate}</h2>
           <p>sente-se honrada em convidá-lo(a) para a solenidade de formatura.</p>
           <p>Será um prazer ter você comigo para brindar ao fim de um ciclo e celebrar o início de uma nova etapa!</p>
+          <h3 class="event-script">Solenidade</h3>
+          <p class="event-name">BAILE DE FORMATURA</p>
           <div class="date-card" aria-label="${event.dateLabel} às ${event.time}">
-            <strong class="date-card-day">13</strong><span class="date-card-meta"><strong>Sábado · Fevereiro de 2027</strong><span>${event.time} · ${event.course}</span></span>
+            <span class="date-card-meta"><strong>SÁBADO</strong><strong class="date-card-day">13</strong><em>fevereiro de 2027</em><span>ÀS 22H</span></span>
           </div>
-          <div class="event-facts">
-            <article class="fact-card"><span class="fact-icon" aria-hidden="true">✦</span><span><strong>Solenidade</strong><span>${event.dateLabel} · ${event.time}</span></span></article>
-            <article class="fact-card"><span class="fact-icon" aria-hidden="true">✧</span><span><strong>${event.party}</strong><span>${event.dateLabel} · ${event.time}</span></span></article>
-          </div>
-          <p><strong>${event.venue}</strong></p>
+          <p><strong>Local: ${event.venue}</strong></p>
           <a class="btn btn-quiet" href="${event.mapsUrl}" target="_blank" rel="noopener noreferrer">Saiba como chegar <span aria-hidden="true">↗</span></a>
         </div>
       </div>
@@ -69,7 +66,7 @@ app.innerHTML = `
             <li>Chegue com antecedência para que possamos aproveitar cada momento com tranquilidade.</li>
             <li>Convite exclusivo e individual. Confirme somente a sua presença.</li>
             <li>Tire muitas fotos, me marque e me ajude a eternizar esse momento.</li>
-            <li>Não esqueça de confirmar sua presença até o dia ${event.rsvpDeadline}.</li>
+            <li>Não esqueça de confirmar a sua presença!</li>
             <li>É proibido ir embora no meio da festa. Fique até o final!</li>
           </ul>
         </div>
@@ -91,12 +88,10 @@ app.innerHTML = `
     <section class="section rsvp-section" id="rsvp">
       <div class="wrap rsvp-grid">
         <div class="rsvp-panel reveal">
-          <p class="eyebrow">Até o dia ${event.rsvpDeadline}</p><h2 class="script-heading">Confirme sua presença</h2>
-          <p>Este convite é individual. Preencha seu nome e informe se levará acompanhante.</p>
+          <p class="eyebrow">Confirme a presença até o dia ${event.rsvpDeadline}</p>
           <form class="rsvp-form" id="rsvp-form">
-            <div class="field"><label for="guest-name">Nome completo</label><input id="guest-name" name="name" autocomplete="name" required placeholder="Como podemos chamar você?"></div>
-            <div class="field"><label for="guest-companion">Vai levar acompanhante?</label><select id="guest-companion" name="companion"><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
-            <button class="btn" type="submit">Confirmar presença <span aria-hidden="true">→</span></button>
+            <div class="field"><label class="sr-only" for="guest-name">Seu nome</label><input id="guest-name" name="name" autocomplete="name" required placeholder="Seu nome"></div>
+            <button class="btn" type="submit">Confirmar pelo WhatsApp</button>
           </form>
           <p class="form-note" id="form-note" aria-live="polite"></p>
         </div>
@@ -127,6 +122,10 @@ const openButton = document.querySelector('#open-invite')
 openButton.addEventListener('click', () => {
   cover.classList.add('open')
   openButton.classList.add('is-opening')
+  audio.play().then(() => {
+    audioButton.setAttribute('aria-pressed', 'true')
+    audioButton.setAttribute('aria-label', 'Pausar música')
+  }).catch(() => {})
   document.body.classList.remove('is-locked')
   document.querySelector('#invitation').setAttribute('tabindex', '-1')
   document.querySelector('#invitation').focus({ preventScroll: true })
@@ -171,7 +170,6 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault()
   const formData = new FormData(form)
   const guest = String(formData.get('name') || '').trim()
-  const companion = String(formData.get('companion') || 'Não')
   if (event.formspreeEndpoint) {
     try {
       const response = await fetch(event.formspreeEndpoint, { method: 'POST', body: formData, headers: { Accept: 'application/json' } })
@@ -180,7 +178,7 @@ form.addEventListener('submit', async (e) => {
       form.reset()
     } catch { document.querySelector('#form-note').textContent = 'Não foi possível enviar agora. Tente novamente ou confirme pelo WhatsApp.' }
   } else {
-    const text = `Olá! Sou ${guest} e confirmo presença na formatura de ${event.graduate}. Acompanhante: ${companion}.`
+    const text = `Olá! Sou ${guest} e confirmo minha presença na formatura de ${event.graduate}.`
     window.open(`https://wa.me/${event.whatsapp}?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer')
   }
 })
