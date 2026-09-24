@@ -1,0 +1,21 @@
+export const event = {
+  graduate: 'Gabriela da Silva Moreira',
+  course: 'Enfermagem',
+  class: '2026/2',
+  dateLabel: 'Sábado, 13 de fevereiro de 2027',
+  eventDate: '2027-02-13T22:00:00-04:00',
+  ceremony: 'Solenidade de formatura',
+  party: 'Baile de Formatura',
+  time: '22h',
+  venue: 'Bosque Expo - Centro de Eventos',
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Bosque+Expo+Centro+de+Eventos',
+  attire: 'Traje passeio completo',
+  attireNote: 'Pedimos com carinho que não compareçam de vermelho ou de tons parecidos.',
+  rsvpDeadline: '15/01/2027',
+  whatsapp: '5567991399776',
+  formspreeEndpoint: '',
+  photos: { cover: './img/gabi-capa.webp', story: './img/gabi-historia.webp', event: './img/gabi-colacao.webp', details: './img/gabi-enfermagem.webp', rsvp: './img/gabi-diploma.webp' },
+  seal: './img/selo.webp',
+  lamp: './img/lampada.webp',
+  audioSrc: './audio/musica.mp3'
+}
